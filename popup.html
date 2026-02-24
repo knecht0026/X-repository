@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X 推文导出</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <h1>X 推文导出到 Google Docs</h1>
+
+      <label>
+        文档标题（首次创建时生效）
+        <input id="docTitle" placeholder="X 推文导出合集" />
+      </label>
+
+      <label>
+        已绑定文档 ID（为空则自动创建）
+        <input id="docId" placeholder="留空将自动创建单一文档" />
+      </label>
+
+      <details>
+        <summary>AI 主题生成（可选）</summary>
+        <label>
+          API Endpoint
+          <input id="aiEndpoint" placeholder="例如 https://api.openai.com/v1/chat/completions" />
+        </label>
+        <label>
+          Model
+          <input id="aiModel" placeholder="例如 gpt-4o-mini" />
+        </label>
+        <label>
+          API Key
+          <input id="aiApiKey" type="password" placeholder="sk-..." />
+        </label>
+      </details>
+
+      <button id="saveSettings">保存设置</button>
+      <button id="exportBtn">导出当前页面推文</button>
+
+      <p id="status"></p>
+      <a id="docLink" target="_blank" rel="noreferrer"></a>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

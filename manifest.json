@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "X 推文导出到 Google Docs",
+  "description": "将 X（Twitter）页面中的推文批量导出到同一个 Google Docs 文档。",
+  "version": "1.0.0",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "identity"
+  ],
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*",
+    "https://docs.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "YOUR_GOOGLE_OAUTH_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/documents"
+    ]
+  },
+  "action": {
+    "default_title": "导出推文",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
