@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>X 推文下载设置</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main>
+    <h1>X 推文下载助手</h1>
+
+    <label class="row">
+      <input id="autoDownload" type="checkbox" />
+      <span>自动下载高质量推文</span>
+    </label>
+
+    <label class="column">
+      <span>最低点赞阈值</span>
+      <input id="minLikes" type="number" min="0" step="1" />
+    </label>
+
+    <button id="saveBtn">保存设置</button>
+    <p id="status"></p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
